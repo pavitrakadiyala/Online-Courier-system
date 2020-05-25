@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<hmtl>
+<head>
+<title>restaurant.com</title>
+//<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<style type="text/css">
+.halves{
+width:49%;
+float:left;
+margin-right:2%;
+}
+.last{
+margin-right:0;
+}
+</style>
+
+
+<body>
+<div style="background-color:olive"><br>
+<h1 align="center">RESTAURANT</h1><br>
+</div>
+<h3 align="center">ORDER DETAILS</h3>
+<br><br>
+
+<p style="color:olive;font-size:200%" >Your selected items:</p>
+<!--&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp-->
+<table width="200">
+<tr> <th>ITEM </th>
+<th>  </th>
+<th>QUANTITY</th> </tr>
+</body>
+</html>
+
+<?php
+$count=0;
+$con=new mysqli("localhost","root","","project")or die("Error in database connection");
+if(empty($_POST['select'])){
+echo "<a href=menu.html target=_parent>click here to go back to menu </a>"."<br><br>";
+}
+else
+{
+foreach($_POST['select'] as $selected){
+if($selected=="Naan")
+{
+$qr=$_POST["quantity1"];
+$sugg=$_POST["sugg1"];
+}
+if($selected=="Pulka")
+{
+$qr=$_POST["quantity2"];
+$sugg=$_POST["sugg2"];
+}
+if($selected=="Panner Butter Masala")
+{
+$qr=$_POST["quantity3"];
+$sugg=$_POST["sugg3"];
+}
+if($selected=="Panner Tikka")
+{
+$qr=$_POST["quantity4"];
+$sugg=$_POST["sugg4"];
+}
+if($selected=="Fried Rice")
+{
+$qr=$_POST["quantity5"];
+$sugg=$_POST["sugg5"];
+}
+if($selected=="Noodles")
+{
+$qr=$_POST["quantity6"];
+$sugg=$_POST["sugg6"];
+}
+if($selected=="Briyani")
+{
+$qr=$_POST["quantity7"];
+$sugg=$_POST["sugg7"];
+}
+if($selected=="Lemon Juice")
+{
+$qr=$_POST["quantity8"];
+$sugg=$_POST["sugg8"];
+}
+
+
+$query="INSERT INTO items(Item,Quantity,suggestion,Deliveryaddress,MobileNo,PaymentType) VALUES('".$selected."','".$qr."','".$sugg."','".$_POST['address']."','".$_POST['mobno']."','".$_POST['payment']."')";
+$result=mysqli_query($con,$query);
+include 'Escaper.php';
+$escaper = new Zend\Escaper\Escaper('utf-8');
+$output = $escaper->escapeHtmlAttr($selected);
+$output1 = $escaper->escapeHtmlAttr($qr);
+echo "<tr>"; echo "<td>"; echo "&nbsp &nbsp &nbsp"."$selected"; echo "</td>";
+echo "<td>  </td>";
+echo "<td>"; echo "&nbsp &nbsp &nbsp"."$qr"; echo "</td>"; echo "</tr>";
+ 
+
+
+
+
+}
+}
+echo "</table>";
+
+if(!empty($_POST['select'])){
+
+foreach($_POST['select'] as $selected)
+{
+if($selected=="Naan")
+{
+$q=$_POST['quantity1'];
+$count=$count+(20*$q);
+}
+else if($selected=="Pulka")
+{
+$q=$_POST['quantity2'];
+$count=$count+(22*$q);
+}
+else if($selected=="Panner Butter Masala")
+{
+$q=$_POST['quantity3'];
+$count=$count+(55*$q);
+}
+else if($selected=="Panner Tikka")
+{
+$q=$_POST['quantity4'];
+$count=$count+(60*$q);
+}
+else if($selected=="Fried Rice")
+{
+$q=$_POST['quantity5'];
+$count=$count+(45*$q);
+}
+else if($selected=="Noodles")
+{
+$q=$_POST['quantity6'];
+$count=$count+(50*$q);
+}
+else if($selected=="Briyani")
+{
+$q=$_POST['quantity7'];
+$count=$count+(90*$q);
+}
+else if($selected=="Lemon Juice")
+{
+$q=$_POST['quantity8'];
+$count=$count+(20*$q);
+}
+}
+}
+echo "</br>";
+echo "Total cost----",$count;
+echo "</br>";
+if($count==0)
+{
+echo "You are not selected any items";
+echo "<br><br><br><br>";
+}
+
+else
+{
+if($_POST['payment']=="Online Payment")
+{
+echo "<br><br><br><br>";
+echo "<div align=Center  width=200px style=background-color:olive>Payment</div>";
+echo "<br><br><br><br>";
+echo "<form name=paymentform action=success.html method=post >";
+echo "<table>";
+echo "<tr>";
+echo "<td>";
+echo "Bank:&nbsp&nbsp";
+echo "</td>"; echo "<td>";
+echo "<select name=bank>";
+echo "<option>State bank of India</option>";
+echo "<option>Indian bank</option>";
+echo "<option>City Union Bank</option>";
+echo "<option>Andhra bank</option>";
+echo "<option>South Indian bank</option>";
+echo "</select>";
+echo "</td>";
+echo "</tr>"; echo "<tr></tr><tr></tr>";
+echo "<tr>";
+echo "<td>";
+echo "Account Number:&nbsp&nbsp";
+echo "</td>";
+echo "<td>";
+echo "<input type=text name=accno size=20 required >";
+echo "</td>";
+echo "</tr>";  echo "<tr></tr><tr></tr>";
+
+echo "<tr>";
+echo "<td>";
+echo "Total Cost:&nbsp&nbsp";
+echo "</td>";
+echo "<td>";
+echo "<input type=text name=accno size=20 value=$count readonly>";
+echo "</td>";
+echo "</tr>";
+
+echo "<tr>";
+echo "<td colspan=2>";
+echo "<input type=submit value=Submit>";
+echo "</td>";
+echo "</tr>";
+
+echo "</table>";
+echo "</form>";
+}
+else
+{
+echo "You ordered successfully...Thank you!!!";
+echo "<br><br> <a href=success.html style=font-size:30px>Click here to proceed</a>";
+}
+}
+
+?>
+
+

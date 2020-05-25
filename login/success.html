@@ -1,0 +1,37 @@
+<html>
+<head>
+<title>restaurant.com</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div style="background-color:olive"><br>
+<h1 align="center">RESTAURANT</h1><br>
+</div>
+<br>
+<p style="font-size:140%">Ordered successfully!!! Your order will be delivered in 30 minutes</p><br><br>
+<form method="POST" action="feedbackdb.php">
+<table align="center" bgcolor="skyblue" border=5 cellpadding="10" cellspacing="0" height=200 width=600 style="border:border-collapse;"> 
+<caption style="font-size:150%">Your Suggestions Our Improvement!!</caption>
+<tr> <td>Is it easy to place your order?</td><td><input type="radio"  name="easy" value="yes" required>Yes
+<input type="radio"  name="easy" value="no">No</td></tr> 
+<tr><td>How was your overall experience?</td><td>
+<input type="radio" name="experience" value="best" required>Best
+<input type="radio" name="experience" value="good">Good
+<input type="radio" name="experience" value="average">Average
+<input type="radio" name="experience" value="bad">Bad
+</td></tr> 
+<tr><td>Is the food tasty?</td>
+<td>
+<input type="radio" name="taste" value="best" required>Best
+<input type="radio" name="taste" value="good">Good
+<input type="radio" name="taste" value="average">Average
+<input type="radio" name="taste" value="bad">Bad
+</td></tr> 
+<tr><td>Any suggestions</td>
+<td><textarea rows="5" cols="30" name="suggestion" required></textarea></td></tr>
+<tr><td colspan="2"><input type="submit" value="Submit"></td></tr>
+</table>
+</form>
+</body>
+</html>
+ 

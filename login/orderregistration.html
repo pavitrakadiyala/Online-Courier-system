@@ -1,0 +1,46 @@
+<html>
+<head>
+<title>OURCOURIERSERVICE.com</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript">
+function validate()
+{
+var f=documnet.myform.rmobile.value;
+var h=document.myform.smobile.value;
+var g=document.myform.pid.value;
+var pat=/^\d{10}$/;
+var pat1=/^\d{10}$/;
+var pat2=/^\d{10}$/;
+if(!(pat.test(f)))
+{
+alert("Enter a valid receiver mobile  id");
+return false;
+}
+else if(!(pat1.test(h)))
+{
+alert("Enter valid mobile number");
+return false;
+}
+else if(!(pat2.test(g)))
+{
+alert("Enter a valid employee id");
+return false;
+}
+}
+</script>
+
+</head>
+<body>
+<h3 align="center">Order Registration</h3>
+<form name="myform" onsubmit="return validate()" action="packagestorage.php" method="post">
+<table border=0 align="center" cellpadding="20" cellspacing=0 height=400 width=450>
+<tr><td>Product id:</td><td><input type="text" size="20" maxlength="40" name="pid" required></td></tr>  
+<tr><td>weight:</td><td><input type="text" size="20" maxlength="40" name="wt" required></td></tr> 
+<tr><td>cost:</td><td><input type="text" size="20" maxlength="40" name="cost" required></td> </tr>
+<tr><td>employee id:</td><td><input type="text" size="20" maxlength="40" name="eid" required></td></tr>
+<tr><td>Date of delivery :</td><td><input type="date" size="20" maxlength="40" name="expdate" required></td></tr> 
+
+<tr><td><input type="submit" value="Register" ></td>
+<td><input type="reset" value="Reset"></td></tr></form>
+</table>
+</body></html>

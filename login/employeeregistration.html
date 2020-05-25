@@ -1,0 +1,46 @@
+<html>
+<head>
+<title>ourcourierservice.com</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style type="text/css">
+body{background-image:url("employeeloginpage.jpg");}
+</style>
+<script type="text/javascript">
+function validate()
+{
+
+var h=document.myform.mobile.value;
+var g=document.myform.eid.value;
+var pat1=/^\d{10}$/;
+var pat2=/^\d{10}$/;
+
+if(!(pat1.test(h)))
+{
+alert("Enter valid mobile number");
+return false;
+}
+else if(!(pat2.test(g)))
+{
+alert("Enter a valid employee id");
+return false;
+}
+}
+</script>
+
+</head>
+<body>
+<h3 align="center">Employee Registration</h3>
+<form name="myform" onsubmit="return validate()" action="employeestore.php" method="post">
+<table border=0 align="center" cellpadding="20" cellspacing=0 height=400 width=400>
+<tr><td>employee id:</td><td><input type="text" size="20" maxlength="40" name="eid" required></td></tr>
+<tr><td>employeename:</td><td><input type="text" size="20" maxlength="40" name="employeename" required></td></tr>  
+<tr><td>Date of birth:</td><td><input type="date" size="20" maxlength="40" name="birthday" required></td></tr> 
+<tr><td>Address:</td><td><textarea cols="30" rows="5" wrap="hard" name="address" required></textarea></td></tr>
+<tr><td>Sex:</td><td><input type="text" size="20" maxlength="40" name="sex" required></td></tr> 
+<tr><td>salary:</td><td><input type="text" size="20" maxlength="40" name="salary" required></td></tr>  
+<tr><td>Mobile:</td><td><input type="text" size="20" maxlength="40" name="emobile" required></td></tr> 
+<tr><td>manager id:</td><td><input type="text" size="20" maxlength="40" name="mid" required></td></tr>
+<tr><td><input type="submit" value="Register" ></td>
+<td><input type="reset" value="Reset"></td></tr></form>
+</table>
+</body></html>

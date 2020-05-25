@@ -1,0 +1,158 @@
+<html>
+<head>
+<title>ourcourierservice.com</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style>
+.column {
+    float: left;
+    width: 33.33%;
+    padding: 5px; 
+}
+
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+.scroll
+{
+font-size:30;
+font-color:red;
+}
+</style>
+
+<script type="text/javascript">
+function validate()
+{
+var h=document.menuform.mobno.value;
+var pat1=/^\d{10}$/;
+if(!(pat1.test(h)))
+{
+alert("Enter valid mobile number");
+return false;
+}
+}
+</script>
+</head>
+<body>
+<div style="background-color:olive"><br>
+<h1 align="center">RESTAURANT</h1><br>
+</div>
+<h3 align="Center">MENU</h3>
+<marquee class="scroll"><i>If you want to order items please select the items and scroll down to give your delivery address then click the order button below</i></marquee>
+
+<div align="right"><a style="font-size:15px;" href="homepage.html" target="_parent" >click here to logout</a></div>
+
+<form name="menuform"  action="order.php" method="post" onsubmit="return validate()">
+<div class="row">
+<div class="column">
+<img src="naan.jpg" height="150" width="150"><br>
+<input type="checkbox" name="select[]" value="Naan" >Naan----------Rs.20<br>
+Quantity <select name="quantity1" ><option>1</option>
+<option>2</option>
+<option>3</option>
+<option>4</option>
+<option>5</option></select>
+<br>suggestion:<input type="text" name="sugg1" size="20" >
+</div>
+<div class="column">
+<img src="pulka.jpg" height="150" width="160"><br>
+<input type="checkbox" name="select[]" value="Pulka">Pulka----------Rs.22<br>
+Quantity <select name="quantity2"><option>1</option>
+<option>2</option>
+<option>3</option>
+<option>4</option>
+<option>5</option></select>
+<br>suggestion:<input type="text" name="sugg2" size="20" >
+</div>
+<div class="column">
+<br>
+<img src="paneerbutter masala.jpg" height="150" width="150"><br>
+<input type="checkbox" name="select[]" value="Panner Butter Masala">Panner Butter Masala----------Rs.55<br>
+Quantity <select name="quantity3"><option>1</option>
+<option>2</option>
+<option>3</option>
+<option>4</option>
+<option>5</option></select>
+<br>suggestion:<input type="text" name="sugg3" size="20" >
+</div>
+<div class="column">
+<br>
+<img src="paneertikka.jpg" height="150" width="160"><br>
+<input type="checkbox" name="select[]" value="Panner Tikka">Paneer Tikka----------Rs.60<br>
+Quantity <select name="quantity4"><option>1</option>
+<option>2</option>
+<option>3</option>
+<option>4</option>
+<option>5</option></select>
+<br>suggestion:<input type="text" name="sugg4" size="20" >
+</div>
+</div>
+<div class="row">
+<div class="column">
+<br>
+<img src="friedrice.jpg" height="150" width="150"><br>
+<input type="checkbox" name="select[]" value="Fried Rice">Fried Rice----------Rs.45<br>
+Quantity <select name="quantity5"><option>1</option>
+<option>2</option>
+<option>3</option>
+<option>4</option>
+<option>5</option></select>
+<br>suggestion:<input type="text" name="sugg5" size="20" >
+ </div>
+<div class="column">
+<br>
+<img src="noodles.jpg" height="150" width="160"><br>
+<input type="checkbox" name="select[]" value="Noodles">Noodles----------Rs.50<br>
+Quantity <select name="quantity6"><option>1</option>
+<option>2</option>
+<option>3</option>
+<option>4</option>
+<option>5</option></select>
+<br>suggestion:<input type="text" name="sugg6" size="20" >
+</div>
+<div class="column">
+<br>
+<img src="briyani.jpg" height="150" width="150"><br>
+<input type="checkbox" name="select[]" value="Briyani">Briyani----------Rs.90<br>
+Quantity <select name="quantity7"><option>1</option>
+<option>2</option>
+<option>3</option>
+<option>4</option>
+<option>5</option></select>
+<br>suggestion:<input type="text" name="sugg7" size="20" >
+</div>
+<div class="column">
+<br>
+<img src="lemon.jpg" height="150" width="150"><br>
+<input type="checkbox" name="select[]" value="Lemon Juice">Lemon Juice----------Rs.20<br>
+Quantity <select name="quantity8"><option>1</option>
+<option>2</option>
+<option>3</option>
+<option>4</option>
+<option>5</option></select>
+<br>suggestion:<input type="text" name="sugg8" size="20" >
+</div>
+</div><br><br><br><br>
+
+
+<div align="Center"  height="100px" style="background-color:olive">Delivery Address</div>
+<br><br><br><br>
+<table>
+
+<tr> 
+<td>Delivery Address:</td><td><textarea rows="5" cols="30" name="address" required ></textarea></td></tr>
+<tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr>
+<td>Mobile Number:</td><td><input type="text" name="mobno" size="20" required ></td></tr>
+<tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr>
+<td>Payment Type:</td><td><input type="radio" name="payment" value="Cash on Delivery" required>Cash on Delivery
+<input type="radio" name="payment" value="Online Payment">Online Payment
+</td></tr>
+
+</table>
+<br><br><br><br><br>
+<div align="Center" style="background-color:olive">
+
+<input type="submit" value="Order"></div></form>
+</body>
+</html>
